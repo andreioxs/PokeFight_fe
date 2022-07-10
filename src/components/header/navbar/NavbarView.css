@@ -1,0 +1,8 @@
+.container {
+    background: red;
+    display: flex;
+}
+
+.selected {
+    background: green;
+}
