@@ -1,0 +1,69 @@
+.duell {
+    background-color: #FCD90B;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+}
+
+.duell .header {
+    /* background-color: #FCD90B; */
+    display: flex;
+    height: 40px;
+}
+
+.duell .camera {
+    /* background: burlywood; */
+    display: flex;
+    flex-direction: column;
+    perspective: 100rem;
+    width : 80%;
+    height: 80%;
+    margin: auto;
+}
+
+.duell .perspecite {
+    /* background: white; */
+    display: flex;
+    
+    flex-direction: column;
+    transform: rotateX(30deg);
+    width : 100%;
+    /* height: 80%; */
+    margin: auto;
+    
+
+}
+
+.duell .board {
+    background: #8CB81D;
+    display: flex;
+    /* flex: 1; */
+    flex-direction: column;
+    /* transform: rotateX(50deg); */
+    /* min-width: 100%;
+    max-width: 100%;
+    min-height: 100%;
+    max-height: 100%; */
+    /* margin: auto; */
+    position: relative;
+    top: -14%;
+    padding: 20px;
+    border: 4px solid brown;
+
+    /* background: white; */
+  background-image: radial-gradient(brown 10%, transparent 0);
+  background-size: 4% 4%;
+  /* background-position: -19px -19px; */
+}
+
+.duell .fightArea {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    border: 4px solid brown;
+    /* box-shadow: 20px -20px red; */
+    margin: 20px 400px;
+    padding: 20px;
+}

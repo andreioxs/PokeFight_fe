@@ -1,5 +1,6 @@
 .outer_box {
     display: flex;
+    flex-direction: column;
     justify-content: space-around;
     margin: 2rem 0;
     padding: 5px;
@@ -9,6 +10,8 @@
 
 .inner_box {
     display: flex;
+    flex-direction: column;
+
     background-image: radial-gradient(farthest-corner at 20px 20px,
       black, yellow);
     border-radius: .5rem;
