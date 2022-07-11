@@ -12,8 +12,8 @@ export const NavbarContext = ({ children }) => {
         {
             "id": 1,
             "icon": "",
-            "text": "All Pokemon",
-            "link": "/allPokemon"
+            "text": "Pokédex",
+            "link": "/Pokedex"
         },
         {
             "id": 2,

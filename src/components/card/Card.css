@@ -1,0 +1,97 @@
+
+
+
+.outer_box {
+    display: flex;
+    justify-content: space-around;
+    margin: 2rem 0;
+    padding: 5px;
+    overflow: visible;
+    border-style: groove 10px black;
+}
+
+.inner_box {
+    background-image: radial-gradient(farthest-corner at 20px 20px,
+      black, yellow);
+    border-radius: .5rem;
+    box-shadow: 0 0 16px 0 rgba(0, 0, 0, .8);
+    padding: 10px;
+    border-style: groove 10px black;
+}
+
+.img_box {
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    height: 10rem;
+    width: 10rem;
+    margin: .5rem;
+    padding-bottom: 2.8rem;
+    /* background-color: rgba(200, 200, 200, 0.25); */
+    border-radius: .5rem .5rem;
+
+}
+
+.img_box img{
+    max-width: 100%;
+    max-width: 100%;
+    text-align: center;
+}
+
+/* .base_box {
+    
+    position: relative;
+    margin: -2.2rem 0 1.6rem 0;
+    padding: 0 1rem;
+} */
+
+
+.Card__header {
+    /*Box model*/
+    position: relative;
+    margin: -2rem 0 1.6rem 0;
+    padding: 0 1rem;
+}
+.Card__header h2 {
+    /* Box model */
+    margin: 0 0 .2rem 0;
+
+    /* Typography */
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.0rem;
+    text-align: right;
+    color: #4b4b4b;
+}
+
+.stats{
+    display: flex;
+    justify-content: space-around;
+    background-color: rgba(0, 0, 0, 0.25);
+    border-radius: 5px;
+}
+.Card__number {
+    /* Box model */
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    position: absolute;
+    height: 1.5rem;
+    width: 1.5rem;
+    /* bottom: 0rem;
+    right: .5rem; */
+    border-radius: 50%;
+
+    /* Visual */
+    background-color: rgba(255, 255, 255, 0.5);
+    border: 3px groove #000000;
+    box-shadow: 0 0 30px 0 rgba(0, 0, 0, .2);
+
+    /* Typography */
+    font-family: 'Montserrat', sans-serif;
+    color: ##4b4b4b;
+    font-size: 0.8rem;
+    text-transform: capitalize;
+}

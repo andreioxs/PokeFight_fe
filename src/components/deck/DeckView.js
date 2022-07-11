@@ -1,23 +1,27 @@
 import React from 'react'
+import Card from '../card/Card'
 import './DeckView.css'
+
 
 const DeckView = ({ deck, onClick }) => {
 
-    const renderDeckHuman = (deck) => deck.map(x =>
+    const renderDeckHuman = (deck) => deck.map(pokemon =>
         <button
             className='deck-card'
-            key={x.id}
-            onClick={onClick(x)}
+            key={pokemon.id}
+            onClick={onClick(pokemon)}
+            
         >
-            {x.name.english}
+            <Card pokemon={pokemon}></Card>
+            
         </button>)
 
-    const renderDeckComputer = (deck) => deck.map(x =>
+    const renderDeckComputer = (deck) => deck.map(pokemon =>
         <div
             className='deck-card'
-            key={x.id}
+            key={pokemon.id}
         >
-            {x.name.english}
+            
             KARTE VERDECKT
         </div>)
 
