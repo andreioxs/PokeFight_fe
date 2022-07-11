@@ -21,12 +21,6 @@ export const NavbarContext = ({ children }) => {
             "text": "Duell",
             "link": "/duell"
         },
-        {
-            "id": 3,
-            "icon": "",
-            "text": "Glossar",
-            "link": "/glossar"
-        }
     ])
 
     const [selectId, setLinkId] = useState(0)

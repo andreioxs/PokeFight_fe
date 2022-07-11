@@ -10,7 +10,14 @@ const ListController = ({ filteredPokemon }) => {
 
         if (humanDeck.length >= 6) return console.log("max 6")
 
-        DeckContext.setHumanDeck(prev => [...prev, { ...pokemon, id: pokemon.name.english + "_" + Date.now() }])
+        DeckContext.setHumanDeck(prev =>
+            [...prev,
+                {
+                    ...pokemon, 
+                    id: pokemon.id + "_" + Date.now()
+                }
+            ]
+        )
     }
 
     return <ListView
