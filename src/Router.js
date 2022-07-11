@@ -4,15 +4,19 @@ import {
     Routes,
     Route,
 } from "react-router-dom";
-import Home from './routes/Home';
+
+import AllPokemonController from './routes/allPokemon/AllPokemonController';
+import DuellController from './routes/duell/DuellController';
+import HomeController from './routes/home/HomeController';
+import Home from './routes/home/HomeView';
 
 const Router = () => {
     return (
         <BrowserRouter>
             <Routes>
-                <Route path="/" element={<Home />} />
-                {/* <Route path="allPokemon" element={<AllPokemon />} /> */}
-                {/* <Route path="duel" element={<Duel />} /> */}
+                <Route path="/" element={<HomeController />} />
+                <Route path="/allPokemon" element={<AllPokemonController />} />
+                <Route path="/duell" element={<DuellController />} />
             </Routes>
         </BrowserRouter>
     )

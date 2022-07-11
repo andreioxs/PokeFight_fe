@@ -71,3 +71,9 @@ h6 {
 p {
   font-size: 1rem;
 }
+
+
+button:hover {
+  border: 5px solid red;
+
+}

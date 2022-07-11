@@ -1,8 +1,9 @@
-.container {
-    background: red;
+.navbar {
+    background: burlywood;
     display: flex;
+    gap: 20px;
 }
 
-.selected {
-    background: green;
+.navbar-selected {
+    background: red;
 }

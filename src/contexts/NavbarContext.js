@@ -1,0 +1,48 @@
+import React, { createContext, useContext, useState } from 'react'
+const StateContext = createContext()
+
+export const NavbarContext = ({ children }) => {
+    const [allLink, setAllLink] = useState([
+        {
+            "id": 0,
+            "icon": "",
+            "text": "Home",
+            "link": "/"
+        },
+        {
+            "id": 1,
+            "icon": "",
+            "text": "All Pokemon",
+            "link": "/allPokemon"
+        },
+        {
+            "id": 2,
+            "icon": "",
+            "text": "Duell",
+            "link": "/duell"
+        },
+        {
+            "id": 3,
+            "icon": "",
+            "text": "Glossar",
+            "link": "/glossar"
+        }
+    ])
+
+    const [selectId, setLinkId] = useState(0)
+
+
+    return (
+        <StateContext.Provider
+            value={{
+                allLink, setAllLink,
+
+                selectId, setLinkId,
+            }}
+        >
+            {children}
+        </StateContext.Provider>
+    )
+}
+
+export const useNavbarContext = () => useContext(StateContext)

@@ -1,10 +1,16 @@
 import React from 'react'
-import HeaderModel from './HeaderModel.json'
 import HeaderView from './HeaderView'
 
-const HeaderController = () => {
+import { useNavbarContext } from '../../contexts/NavbarContext'
 
-  return <HeaderView model={HeaderModel}/>
+
+const HeaderController = () => {
+  const navbarContext = useNavbarContext()
+
+
+  return <HeaderView
+    navbarContext={navbarContext}
+  />
 }
 
 export default HeaderController

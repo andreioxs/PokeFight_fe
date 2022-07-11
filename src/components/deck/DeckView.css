@@ -1,0 +1,13 @@
+.deck{
+   background: teal;
+    display: flex;
+    flex-direction: row;
+    gap:80px;
+}
+
+.deck-card {
+    display: flex;
+    gap:20px;
+    background: white;
+    padding: 20px;
+}

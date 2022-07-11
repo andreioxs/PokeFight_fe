@@ -2,14 +2,19 @@ import React from 'react'
 import './HeaderView.css'
 import NavbarController from './navbar/NavbarController'
 
-const HeaderView = ({ model }) => {
+const HeaderView = ({ navbarContext }) => {
 
   return (
-    <div className='container'>
+    <div className='header'>
 
-      <div>logo</div>
+      <img
+        src={""}
+        alt="logo"
+      />
 
-      <NavbarController model={model.navbar} />
+      <NavbarController
+        navbarContext={navbarContext}
+      />
 
     </div>
   )
