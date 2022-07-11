@@ -19,7 +19,7 @@ body {
 
   width: 100vw;
   height: 100vh;
-  background: orange;
+  background: antiquewhite;
 
   font-size: 16px;
 }
@@ -74,6 +74,6 @@ p {
 
 
 button:hover {
-  border: 5px solid red;
+  cursor: pointer;
 
 }

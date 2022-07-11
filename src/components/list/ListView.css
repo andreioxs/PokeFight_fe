@@ -1,10 +1,17 @@
 .list {
     display: flex;
-    gap: 40px;
+    gap: 50px;
+    max-width: 75%;
+    flex-wrap: wrap;
+    width: 75%;
+    justify-content: space-between;
+    margin-left: 10rem;
+    margin-right: 10rem;
 }
 
 .list button {
     background-color: rgba(240, 248, 255, 0);
-    border-radius: 0px;
+    border-radius: 5px;
     border-color: rgb(0, 0, 0, 0) ;
+    
 }
