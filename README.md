@@ -7,4 +7,4 @@ Card Style.
 Element Colors.
 Added an hover effect.
 
-Started with "Home" (Logo, Slogan) as well as the List (Search, Button)
+Started with "Home" (Logo, Slogan) as well as the List (Search, Button).
