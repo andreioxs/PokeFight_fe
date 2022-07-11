@@ -22,7 +22,7 @@ const DeckView = ({ deck, onClick }) => {
             key={pokemon.id}
         >
             
-            KARTE VERDECKT
+            <Card pokemon={pokemon}></Card>
         </div>)
 
     if (onClick === undefined) {
