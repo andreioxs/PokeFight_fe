@@ -8,16 +8,28 @@ const DuellView = ({
     humanDeck,
     choosePokemon,
     computerDeck,
+    computerFightPokemon,
     humanFightPokemon,
+    updateFight,
 }) => {
 
 
+    console.log("computerFightPokemon", computerFightPokemon)
+    console.log("humanFightPokemon", humanFightPokemon)
 
-    const renderFightPokemon = () => humanFightPokemon === null
+    const renderHumanFightPokemon = () => humanFightPokemon === null
         ? <div>Please Choose a Pokemon below</div>
         : (
             <div>
                 <Card pokemon={humanFightPokemon} />
+            </div>
+        )
+
+    const renderComputerFightPokemon = () => computerFightPokemon === null
+        ? null
+        : (
+            <div>
+                <Card pokemon={computerFightPokemon} />
             </div>
         )
 
@@ -40,9 +52,10 @@ const DuellView = ({
 
                         <div className='fightArea'>
                             {/* <h3>-------------------------------------------</h3> */}
-                            {renderFightPokemon()}
+                            {renderComputerFightPokemon()}
                             {/* <h3>------------------FIGHT--------------------</h3> */}
-                            {renderFightPokemon()}
+                            {renderHumanFightPokemon()}
+                            <button onClick={updateFight}>Attack</button>
                             {/* <h3>-------------------------------------------</h3> */}
                         </div>
 

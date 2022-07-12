@@ -3,6 +3,7 @@ import DuellView from './DuellView'
 import AI from './ai/ComputerAI'
 
 import { useDeckContext } from '../../contexts/DeckContext'
+import ComputerAI from './ai/ComputerAI'
 
 const DuellController = () => {
     const deckContext = useDeckContext()
@@ -15,17 +16,89 @@ const DuellController = () => {
 
     const choosePokemon = pokemon => e => {
         console.log("choosePokemon", pokemon)
+
+        // setze fight card wieder zu deck
+        if (humanFightPokemon !== null) {
+            setHumanDeck(prev => [...prev, { ...humanFightPokemon }])
+        }
+
+        // setze fight card
         setHumanFightPokemon(pokemon)
+
+        // entferne karte aus deck
+        setHumanDeck(prev => {
+            const result = [...prev]
+            const index = result.findIndex(x => x.id === pokemon.id)
+            result.splice(index, 1)
+            return result
+        })
+
+        // computer initial choose
+        if (computerFightPokemon !== null) return
+
+        const computerPokemon = ComputerAI.getRandomPokemon(copyComputerDeck)
+
+        setComputerFightPokemon(computerPokemon)
     }
 
-    const computerAI = () => {
-        console.log("computerAI")
-        
+    const damageCalculator = (attack, defense) => {
+        let damage = attack - defense
 
+        if (damage < 10)
+            damage = 10
 
-        setComputerFightPokemon()
+        return damage
     }
 
+
+    const updateFight = e => {
+        console.log("updateFight")
+
+        let resultComputerFightPokemon = computerFightPokemon
+        let resultHumanFightPokemon = humanFightPokemon
+        console.log("START resultHumanFightPokemon", resultHumanFightPokemon)
+
+        // attack
+        if (computerFightPokemon.base.Speed > humanFightPokemon.base.Speed) {
+            console.log("computer begins")
+
+            const damage = damageCalculator(resultComputerFightPokemon.base.Attack, resultHumanFightPokemon.base.Defense)
+            console.log("damage", damage)
+
+
+            const newHP = resultHumanFightPokemon.base.HP - damage
+            console.log("newHP", newHP)
+
+
+            resultHumanFightPokemon = {
+                ...resultHumanFightPokemon,
+                base: {
+                    HP: newHP
+                }
+            }
+            console.log("END resultHumanFightPokemon", resultHumanFightPokemon)
+
+
+        } else {
+            console.log("human begins")
+
+        }
+
+        // pokemon death
+        // if()
+
+
+
+        // game over
+
+        // switch pokemon
+        if (AI.switchPokemon()) {
+            console.log("switchPokemon")
+            const computerPokemon = ComputerAI.getRandomPokemon(copyComputerDeck)
+
+            setComputerFightPokemon(computerPokemon)
+        }
+    }
 
     return <DuellView
         humanDeck={copyHumanDeck}
@@ -33,6 +106,7 @@ const DuellController = () => {
         computerDeck={copyComputerDeck}
         computerFightPokemon={computerFightPokemon}
         humanFightPokemon={humanFightPokemon}
+        updateFight={updateFight}
     />
 }
 
