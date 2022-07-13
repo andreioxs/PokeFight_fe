@@ -11,6 +11,9 @@ const DuellController = () => {
     const [copyComputerDeck, setComputerDeck] = useState(deckContext.computerDeck)
     const [copyHumanDeck, setHumanDeck] = useState(deckContext.humanDeck)
 
+    const [copyComputerDeckDeath, setComputerDeckDeath] = useState([])
+    const [copyHumanDeckDeath, setHumanDeckDeath] = useState([])
+
     const [computerFightPokemon, setComputerFightPokemon] = useState(null)
     const [humanFightPokemon, setHumanFightPokemon] = useState(null)
 
@@ -52,7 +55,7 @@ const DuellController = () => {
 
 
     const updateFight = e => {
-        console.log("updateFight")
+        // console.log("updateFight")
 
         let resultComputerFightPokemon = computerFightPokemon
         let resultHumanFightPokemon = humanFightPokemon
@@ -60,32 +63,42 @@ const DuellController = () => {
 
         // attack
         if (computerFightPokemon.base.Speed > humanFightPokemon.base.Speed) {
-            console.log("computer begins")
+            // console.log("computer begins")
 
             const damage = damageCalculator(resultComputerFightPokemon.base.Attack, resultHumanFightPokemon.base.Defense)
-            console.log("damage", damage)
-
+            // console.log("damage", damage)
 
             const newHP = resultHumanFightPokemon.base.HP - damage
-            console.log("newHP", newHP)
-
+            // console.log("newHP", newHP)
 
             resultHumanFightPokemon = {
                 ...resultHumanFightPokemon,
                 base: {
+                    ...resultHumanFightPokemon.base,
                     HP: newHP
                 }
             }
-            console.log("END resultHumanFightPokemon", resultHumanFightPokemon)
-
+            // console.log("END resultHumanFightPokemon", resultHumanFightPokemon)
+            setHumanFightPokemon(resultHumanFightPokemon)
 
         } else {
             console.log("human begins")
 
         }
 
+
         // pokemon death
-        // if()
+        if (resultHumanFightPokemon.base.HP < 0) {
+            console.log("human is dead")
+
+            setHumanDeckDeath(prev => [...prev, { ...resultHumanFightPokemon }])
+            // setHumanFightPokemon(prev => {
+            //     const result = [...prev]
+            //     const index = result.findIndex(x => x.id === resultHumanFightPokemon.id)
+            //     result.splice(index, 1)
+            //     return result
+            // })
+        }
 
 
 

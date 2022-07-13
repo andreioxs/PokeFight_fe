@@ -1,7 +1,11 @@
 import React from 'react'
 import DeckView from './DeckView'
 
-const DeckController = ({ deck, onClick }) => {
+const DeckController = (
+    {
+        deck,
+        onClick
+    }) => {
 
 
     return <DeckView

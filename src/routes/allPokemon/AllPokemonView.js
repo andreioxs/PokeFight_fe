@@ -29,7 +29,6 @@ const AllPokemonView = ({
                 <DeckController
                     deck={humanDeck}
                     onClick={rem}
-
                 />
             </div>
 
