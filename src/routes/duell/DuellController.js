@@ -1,125 +1,164 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import DuellView from './DuellView'
 import AI from './ai/ComputerAI'
 
 import { useDeckContext } from '../../contexts/DeckContext'
 import ComputerAI from './ai/ComputerAI'
 
+import { movePokemonFromStateToState } from '../../utils/pokemonUtils'
+import { attack } from './fight/fight'
+
 const DuellController = () => {
     const deckContext = useDeckContext()
 
-    const [copyComputerDeck, setComputerDeck] = useState(deckContext.computerDeck)
-    const [copyHumanDeck, setHumanDeck] = useState(deckContext.humanDeck)
+    // deck
+    const [computerDeck, setComputerDeck] = useState(deckContext.computerDeck)
+    const [humanDeck, setHumanDeck] = useState(deckContext.humanDeck)
 
-    const [copyComputerDeckDeath, setComputerDeckDeath] = useState([])
-    const [copyHumanDeckDeath, setHumanDeckDeath] = useState([])
-
-    const [computerFightPokemon, setComputerFightPokemon] = useState(null)
-    const [humanFightPokemon, setHumanFightPokemon] = useState(null)
-
-    const choosePokemon = pokemon => e => {
-        console.log("choosePokemon", pokemon)
-
-        // setze fight card wieder zu deck
-        if (humanFightPokemon !== null) {
-            setHumanDeck(prev => [...prev, { ...humanFightPokemon }])
+    // death pokemons
+    const [computerDeathPokemons, setComputerDeathPokemons] = useState([])
+    const [humanDeathPokemons, setHumanDeathPokemons] = useState([{
+        "id": "6_1657746994076",
+        "name": {
+            "english": "Charizard",
+            "japanese": "リザードン",
+            "chinese": "喷火龙",
+            "french": "Dracaufeu"
+        },
+        "type": [
+            "Fire",
+            "Flying"
+        ],
+        "base": {
+            "HP": 78,
+            "Attack": 84,
+            "Defense": 78,
+            "Sp. Attack": 109,
+            "Sp. Defense": 85,
+            "Speed": 100
         }
+    }])
 
-        // setze fight card
-        setHumanFightPokemon(pokemon)
+    // fighting pokemon
+    const [computerFightingPokemon, setComputerFightPokemon] = useState(null)
+    const [humanFightingPokemon, setHumanFightPokemon] = useState(null)
 
-        // entferne karte aus deck
-        setHumanDeck(prev => {
-            const result = [...prev]
-            const index = result.findIndex(x => x.id === pokemon.id)
-            result.splice(index, 1)
-            return result
-        })
-
-        // computer initial choose
-        if (computerFightPokemon !== null) return
-
-        const computerPokemon = ComputerAI.getRandomPokemon(copyComputerDeck)
-
-        setComputerFightPokemon(computerPokemon)
-    }
-
-    const damageCalculator = (attack, defense) => {
-        let damage = attack - defense
-
-        if (damage < 10)
-            damage = 10
-
-        return damage
-    }
-
+    const [gameover, setGameover] = useState("")
 
     const updateFight = e => {
-        // console.log("updateFight")
+        if (gameover.length > 0) return console.log(gameover)
+        // is Fighting Pokemon available
+        // if(computerFightingPokemon === null || humanFightingPokemon === null) return console.log("choose pokemon")
 
-        let resultComputerFightPokemon = computerFightPokemon
-        let resultHumanFightPokemon = humanFightPokemon
-        console.log("START resultHumanFightPokemon", resultHumanFightPokemon)
 
-        // attack
-        if (computerFightPokemon.base.Speed > humanFightPokemon.base.Speed) {
-            // console.log("computer begins")
+        if (computerFightingPokemon === null && computerDeck.length > 0) {
+            // choose pokemon
+            const newFightingCOmputerPokemon = ComputerAI.getRandomPokemon(computerDeck)
+            console.log("ööö", newFightingCOmputerPokemon)
+            movePokemonFromStateToState(setComputerDeck)(setComputerFightPokemon)(newFightingCOmputerPokemon)
+        }
 
-            const damage = damageCalculator(resultComputerFightPokemon.base.Attack, resultHumanFightPokemon.base.Defense)
-            // console.log("damage", damage)
+        // no more pokemons available
+        if (computerDeck.length === 0 && computerFightingPokemon === null) {
+            return setGameover("human")
+        }
 
-            const newHP = resultHumanFightPokemon.base.HP - damage
-            // console.log("newHP", newHP)
+        if (humanDeck.length === 0 && humanFightingPokemon === null) {
+            return setGameover("computer")
+        }
 
-            resultHumanFightPokemon = {
-                ...resultHumanFightPokemon,
-                base: {
-                    ...resultHumanFightPokemon.base,
-                    HP: newHP
+        if (computerFightingPokemon === null || humanFightingPokemon === null) return console.log("üüü")
+
+
+        // whot attack first
+        if (computerFightingPokemon.base.Speed > humanFightingPokemon.base.Speed) {
+            // computer attacks
+            if (!attack(computerFightingPokemon, humanFightingPokemon, setHumanFightPokemon)) {
+                // human pokemondeath
+                movePokemonFromStateToState(setHumanFightPokemon)(setHumanDeathPokemons)(humanFightingPokemon)
+            } else {
+                // human attack
+                if (!attack(humanFightingPokemon, computerFightingPokemon, setComputerFightPokemon)) {
+                    //computer pokemon death
+                    movePokemonFromStateToState(setComputerFightPokemon)(setComputerDeathPokemons)(computerFightingPokemon)
                 }
             }
-            // console.log("END resultHumanFightPokemon", resultHumanFightPokemon)
-            setHumanFightPokemon(resultHumanFightPokemon)
-
         } else {
-            console.log("human begins")
-
+            // human attacks
+            if (!attack(humanFightingPokemon, computerFightingPokemon, setComputerFightPokemon)) {
+                //computer pokemon death
+                movePokemonFromStateToState(setComputerFightPokemon)(setComputerDeathPokemons)(computerFightingPokemon)
+            } {
+                // computer attack
+                if (!attack(computerFightingPokemon, humanFightingPokemon, setHumanFightPokemon)) {
+                    // human pokemondeath
+                    movePokemonFromStateToState(setHumanFightPokemon)(setHumanDeathPokemons)(humanFightingPokemon)
+                }
+            }
         }
 
 
-        // pokemon death
-        if (resultHumanFightPokemon.base.HP < 0) {
-            console.log("human is dead")
+        // // game over?
+        // if (computerDeck.length === 0) {
+        //     // computer game over
+        //     console.log("COMPUTER is GAME OVER")
 
-            setHumanDeckDeath(prev => [...prev, { ...resultHumanFightPokemon }])
-            // setHumanFightPokemon(prev => {
-            //     const result = [...prev]
-            //     const index = result.findIndex(x => x.id === resultHumanFightPokemon.id)
-            //     result.splice(index, 1)
-            //     return result
-            // })
-        }
+        // } else if (humanDeck.length === 0) {
+        //     // computer game over
+        //     console.log("HUMAN is GAME OVER")
 
+        // }
 
+        // console.log("computer pokemon is death", computerFightingPokemon)
+        // // computer need new pokeom?
+        // if (computerFightingPokemon === null) {
+        //     console.log("computer pokemon is death55555555555555555")
+        //     const newFightingCOmputerPokemon = ComputerAI.getRandomPokemon(computerDeck)
+        //     movePokemonFromStateToState(computerDeck)(computerFightingPokemon)(newFightingCOmputerPokemon)
+        // }
 
-        // game over
+        // // ai maybe switch pokemon
+        // if (AI.switchPokemon()) {
+        //     console.log("switchPokemon")
+        //     const newFightingCOmputerPokemon = ComputerAI.getRandomPokemon(computerDeck)
 
-        // switch pokemon
-        if (AI.switchPokemon()) {
-            console.log("switchPokemon")
-            const computerPokemon = ComputerAI.getRandomPokemon(copyComputerDeck)
-
-            setComputerFightPokemon(computerPokemon)
-        }
+        //     // fight back to deck
+        //     movePokemonFromStateToState(computerFightingPokemon)(computerDeck)(computerFightingPokemon)
+        //     // deck to fight
+        //     movePokemonFromStateToState(computerDeck)(computerFightingPokemon)(newFightingCOmputerPokemon)
+        // }
     }
 
+    const choosePokemon = pokemon => e => {
+        // computer initial
+        if (computerFightingPokemon === null) {
+            const computerPokemon = ComputerAI.getRandomPokemon(computerDeck)
+            movePokemonFromStateToState(setComputerDeck)(setComputerFightPokemon)(computerPokemon)
+        }
+
+        // fight to deck
+        if (humanFightingPokemon !== null) {
+            movePokemonFromStateToState(setHumanFightPokemon)(setHumanDeck)(humanFightingPokemon)
+        }
+
+        // deck to fight
+        movePokemonFromStateToState(setHumanDeck)(setHumanFightPokemon)(pokemon)
+    }
+
+    useEffect(() => {
+
+    }, [])
+
     return <DuellView
-        humanDeck={copyHumanDeck}
-        choosePokemon={choosePokemon}
-        computerDeck={copyComputerDeck}
-        computerFightPokemon={computerFightPokemon}
-        humanFightPokemon={humanFightPokemon}
+        computerDeck={computerDeck}
+        humanDeck={humanDeck}
+        computerDeathPokemons={computerDeathPokemons}
+        humanDeathPokemons={humanDeathPokemons}
+        computerFightingPokemon={computerFightingPokemon}
+        humanFightingPokemon={humanFightingPokemon}
         updateFight={updateFight}
+        choosePokemon={choosePokemon}
+        gameover={gameover}
     />
 }
 

@@ -1,13 +1,24 @@
-.deck{
-   background: rgb(0,0,0,0.4);
+.deck {
     display: flex;
     flex-direction: row;
+    margin: 10px 0px;
+    /* padding: 0px; */
+    background: rgb(0, 0, 0, 0.4);
+
     /* gap:80px; */
+    justify-content: space-around;
+    border: 20px solid white;
+}
+
+.deck .cards {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
 }
 
 .deck-card {
     display: flex;
     /* gap:20px; */
     background: rgba(255, 255, 255, 0.24);
-    padding: 20px;
+    /* padding: 20px; */
 }

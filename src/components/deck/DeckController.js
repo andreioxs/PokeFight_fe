@@ -4,13 +4,15 @@ import DeckView from './DeckView'
 const DeckController = (
     {
         deck,
-        onClick
+        onClick,
+        death = []
     }) => {
 
 
     return <DeckView
         deck={deck}
         onClick={onClick}
+        death={death}
     />
 }
 

@@ -19,13 +19,13 @@ const DeckView = ({ deck, onClick, death = [] }) => {
 
     const renderComputer = (deck) => deck
         .map(pokemon => (
-            <button
+            <div
                 className='deck-card'
                 key={pokemon.id}
             // onClick={onClick(pokemon)}
             >
                 <Card pokemon={pokemon} />
-            </button>
+            </div>
         )
         )
 
@@ -36,7 +36,7 @@ const DeckView = ({ deck, onClick, death = [] }) => {
                 key={pokemon.id}
             >
 
-                death
+                death:{JSON.stringify(pokemon)}
             </div>
         )
         )
@@ -46,42 +46,46 @@ const DeckView = ({ deck, onClick, death = [] }) => {
         const deathLengt = death.length
         const number = deckLengt + deathLengt
 
-
-
         if (number < 6) {
             const left = 6 - number
-            console.log("left", left)
+            // console.log("left", left)
 
             return [...Array(left)].map((x, i) => <div
                 key={i}
                 style={{ display: "flex", minHeight: 50, minWidth: 50, background: "red" }}
 
             >
-                {console.log("666666666666")}
+                empty
+                <br />
+                <br />
+                empty
+                <br />
+                <br />
+                empty
+                <br />
+                <br />
                 empty
             </div>)
 
         }
     }
 
-
-
-    if (onClick === undefined) {
-        return (
-            <div className='deck'>
+    const renderDeck = () => onClick === undefined
+        ? (
+            <div className='cards'>
                 {renderComputer(deck)}
             </div>
         )
-    }
-
-
-
-    console.log("deck", deck)
-    console.log("death", death)
+        : (
+            <div className='cards'>
+                {renderHuman(deck)}
+            </div>
+        )
 
     return (
         <div className='deck'>
-            {renderHuman(deck)}
+            {renderDeck()}
+
             {renderDeath(death)}
             {renderEmpty(deck, death)}
         </div>

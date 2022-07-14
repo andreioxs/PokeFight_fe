@@ -1,11 +1,13 @@
 .list {
     display: flex;
-    /* gap: 40px; */
+    gap: 40px;
+    background-color: red;
+    /* padding: 20px; */
 }
 
 .list button {
     display: flex;
-    background-color: rgba(240, 248, 255, 0);
-    border-radius: 0px;
-    border-color: rgb(0, 0, 0, 0) ;
+    /* background-color: rgba(240, 248, 255, 0); */
+    /* border-radius: 90px; */
+    /* border-color: rgb(0, 0, 0, 0) ; */
 }

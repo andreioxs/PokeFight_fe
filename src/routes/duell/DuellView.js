@@ -5,33 +5,41 @@ import DeckController from '../../components/deck/DeckController'
 import HeaderController from '../../components/header/HeaderController'
 
 const DuellView = ({
-    humanDeck,
-    choosePokemon,
     computerDeck,
-    computerFightPokemon,
-    humanFightPokemon,
+    humanDeck,
+    computerDeathPokemons,
+    humanDeathPokemons,
+    computerFightingPokemon,
+    humanFightingPokemon,
     updateFight,
+    choosePokemon,
+    gameover,
 }) => {
 
-
-    console.log("computerFightPokemon", computerFightPokemon)
-    console.log("humanFightPokemon", humanFightPokemon)
-
-    const renderHumanFightPokemon = () => humanFightPokemon === null
+    const renderhumanFightingPokemon = () => humanFightingPokemon === null
         ? <div>Please Choose a Pokemon below</div>
         : (
             <div>
-                <Card pokemon={humanFightPokemon} />
+                <Card pokemon={humanFightingPokemon} />
             </div>
         )
 
-    const renderComputerFightPokemon = () => computerFightPokemon === null
+    const rendercomputerFightingPokemon = () => computerFightingPokemon === null
         ? null
         : (
             <div>
-                <Card pokemon={computerFightPokemon} />
+                <Card pokemon={computerFightingPokemon} />
             </div>
         )
+
+    const renderAttackButton = () => <button className='button' onClick={updateFight}>click me for logic...</button>
+
+    const renderButtonOrGameOver = () => gameover.length > 0
+            ? (<div>
+                <h1>GAME OVER</h1>
+                <h4>the winner is {gameover}</h4>
+            </div>)
+            : renderAttackButton()
 
     return (
         <div className='duell'>
@@ -41,30 +49,30 @@ const DuellView = ({
             </div>
 
             <div className='camera'>
+
                 <div className='perspecite'>
 
                     <div className='board'>
 
-                        {/* <h4>Gegner Deck</h4> */}
                         <DeckController
                             deck={computerDeck}
+                            death={computerDeathPokemons}
                         />
 
                         <div className='fightArea'>
-                            {/* <h3>-------------------------------------------</h3> */}
-                            {renderComputerFightPokemon()}
-                            {/* <h3>------------------FIGHT--------------------</h3> */}
-                            {renderHumanFightPokemon()}
-                            <button onClick={updateFight}>Attack</button>
-                            {/* <h3>-------------------------------------------</h3> */}
+                            {rendercomputerFightingPokemon()}
+                            {renderButtonOrGameOver()}
+                            {renderhumanFightingPokemon()}
                         </div>
 
                         <DeckController
                             deck={humanDeck}
+                            death={humanDeathPokemons}
                             onClick={choosePokemon}
                         />
-                        {/* <h4>My Deck</h4> */}
+
                     </div>
+
                 </div>
 
             </div>

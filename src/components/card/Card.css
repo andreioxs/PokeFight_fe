@@ -18,6 +18,8 @@
     box-shadow: 0 0 16px 0 rgba(0, 0, 0, .8);
     padding: 10px;
     border-style: groove 10px black;
+    width: 140px;
+    height: 200px;
 }
 
 .img_box {
