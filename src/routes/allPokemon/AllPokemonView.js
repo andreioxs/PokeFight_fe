@@ -2,7 +2,7 @@ import React from 'react'
 import DeckController from '../../components/deck/DeckController'
 import HeaderController from '../../components/header/HeaderController'
 import ListController from '../../components/list/ListController'
-
+import './AllPokemonView.css'
 import SearchController from '../../components/search/SearchController'
 
 const AllPokemonView = ({
@@ -33,7 +33,7 @@ const AllPokemonView = ({
             </div>
 
             <div>
-                <h4></h4>
+            
                 <SearchController
                     handleSearch={handleSearch}
                 />

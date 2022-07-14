@@ -1,11 +1,14 @@
 #search {
-    margin-bottom: 6rem;
-    margin-top: 2rem;
-    justify-self: center;
+    margin-bottom: 8rem;
+    /* padding-bottom: 2rem; */
+    /* margin-top: 2rem; */
+    justify-content: center;
+    align-items: center;
+    /* display: flex; */
 }
 
 #search input{
-    height: 2rem;
+    height: 3rem;
     width: 20rem;
     border-radius: 1rem;
     justify-content: center;
@@ -19,9 +22,17 @@
     cursor: pointer;
     background-color: antiquewhite;
     margin-left: 2rem;
-    height: 2rem;
+    height: 3rem;
     width: 5rem;
-    border: 1px ridge black;
+    justify-content: center;
+    border: 2px ridge black;
     border-radius: 1rem;
     font-size: 20px;
+}
+#search img {
+    height: 5rem;
+    margin-left: 5rem;
+    margin-top: 2rem;
+    justify-content: center;
+    
 }

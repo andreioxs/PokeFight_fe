@@ -1,5 +1,8 @@
 import React from 'react'
 import './SearchView.css'
+import {
+    Link,
+  } from "react-router-dom";
 
 const SearchView = ({ onChange, onKeyDown, onClick }) => {
     return (
@@ -11,6 +14,7 @@ const SearchView = ({ onChange, onKeyDown, onClick }) => {
                 placeholder="Pokémon"
             />
             <button onClick={onClick}>Suche!</button>
+            <Link to={"/duell"}><img id="pokeball" src={"images/pokeball.png"} alt="pokeball"/></Link>
         </div>
     )
 }
