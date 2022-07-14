@@ -1,9 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=Alumni+Sans:wght@600&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Alumni+Sans:wght@600&display=swap'); */
+@import url('https://db.onlinewebfonts.com/c/775c3814e9c1f228d495333e07580d59?family=Andy');
 
 
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+  /* font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -11,19 +12,22 @@ body {
 
   font-family: 'Alumni Sans', sans-serif;
   -webkit-font-smoothing: antialiased;
-  /* -moz-osx-font-smoothing: grayscale; */
+  -moz-osx-font-smoothing: grayscale; */
 
   font-weight: 500;
   letter-spacing: .4px;
-  /* color: #333; */
+  color: #333;
 
-  width: 100vw;
-  height: 100vh;
-  background: orange;
-  background: antiquewhite;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  background: rgb(0,0,0);
+background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(250,235,215,1) 50%, rgba(0,0,0,1) 100%);
 
   font-size: 16px;
 }
+
 
 *,
 *::after,
@@ -52,6 +56,7 @@ h1 {
 h2 {
   font-size: 3.75rem;
   font-weight: 500;
+  
 }
 h3 {
   font-size: 3rem;
@@ -68,9 +73,20 @@ h5 {
 h6 {
   font-size: 1.25rem;
   font-weight: 500;
+  text-align: left;
 }
 p {
   font-size: 1rem;
+  /* @font-face {
+    font-family: "Andy";
+    src: url("https://db.onlinewebfonts.com/t/775c3814e9c1f228d495333e07580d59.eot");
+    src: url("https://db.onlinewebfonts.com/t/775c3814e9c1f228d495333e07580d59.eot?#iefix") format("embedded-opentype"),
+    url("https://db.onlinewebfonts.com/t/775c3814e9c1f228d495333e07580d59.woff2") format("woff2"),
+    url("https://db.onlinewebfonts.com/t/775c3814e9c1f228d495333e07580d59.woff") format("woff"),
+    url("https://db.onlinewebfonts.com/t/775c3814e9c1f228d495333e07580d59.ttf") format("truetype"),
+    url("https://db.onlinewebfonts.com/t/775c3814e9c1f228d495333e07580d59.svg#Andy") format("svg");;
+  } */
+  
 }
 
 
@@ -82,4 +98,37 @@ button:hover {
 button {
   background: #0000;
   border: 0px
+}
+#start{
+  margin-top: 0%;
+  justify-content: center;
+  align-items: center;
+}
+#Homepage{
+  justify-content: center;
+  align-items: center;
+  width: 50rem;
+  margin: auto;
+}
+#home {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 5rem;
+  /* gap: 150px; */
+  /* width: 50rem; */
+}
+
+#pokemon {
+  width: 35rem;
+  height: 10rem;
+}
+#pokedex {
+  width: 30rem;
+  height: 100%;
+}
+
+#slogan {
+  width: 50rem;
+  height: 5rem;
+  
 }

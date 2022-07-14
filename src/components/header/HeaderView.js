@@ -7,10 +7,7 @@ const HeaderView = ({ navbarContext }) => {
   return (
     <div className='header'>
 
-      <img
-        src={""}
-        alt="logo"
-      />
+      <a href="/#" ><img src={"images/artoxs.png"} alt="logo" height="100%"/></a>
 
       <NavbarController
         navbarContext={navbarContext}

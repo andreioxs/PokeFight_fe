@@ -17,8 +17,7 @@ const ListView = ({ filteredPokemon, handleAddHumanDeck }) => {
     return (
         <div className='list'>
             {renderList()}
-
-
+            
         </div>
 
     )

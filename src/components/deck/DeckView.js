@@ -57,11 +57,14 @@ const DeckView = ({ deck, onClick, death = [] }) => {
             <div
             className='deck-card'
                 key={i}
-                style={{ display: "flex", minHeight: 50, minWidth: 50, background: "red" }}
+                style={{ display: "flex", minHeight: 50, minWidth: 50,
+                // background: "red"
+            
+            }}
 
             >
-                <div className='empty'>
-                </div>
+                {/* <div className='empty'>
+                </div> */}
             </div>)
 
         }

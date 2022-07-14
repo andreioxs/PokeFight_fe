@@ -32,7 +32,7 @@ const Card = ({ pokemon }) => {
   };
 
   const gradient = `radial-gradient(farthest-corner at 50% -20%, #000, ${pokemon.type.map(t => typeColor[t]).filter(v => !!v)}, #000)`;
-  console.log(pokemon)
+  // console.log(pokemon)
   function MouseOver(Card) {
     Card.target.style.background = 'red';
   }
@@ -48,11 +48,9 @@ const Card = ({ pokemon }) => {
             <div class="Card__header">
               <h2 class="Card_name"><span class="Card__number">{id}</span>{pokemon.name.english}</h2>
             </div>
-            <div class="stats">
-
+            <div class="outer-box">
               <div class="stats">
                 <p>Attack: {pokemon.base.Attack}</p>
-                <p>Attack: {pokemon.base.Attack} </p>
                 <p>Defense: {pokemon.base.Defense}</p>
               </div>
               <div class="stats">

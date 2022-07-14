@@ -1,5 +1,19 @@
 .header {
-    background: #DF3A26;
+    background: #000;
+    color: #fff;
+    text-decoration: none;
     display: flex;
     gap: 20px;
+    height: 5rem;
+    max-width: 100%;
+    text-align: center;
+    justify-content: space-around;
+    padding: 1rem;
+}
+.header a{
+    text-decoration: none;
+    color: #fff;
+    font-size: 24px;
+    cursor: pointer;
+    
 }

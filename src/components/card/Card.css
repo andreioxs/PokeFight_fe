@@ -1,13 +1,14 @@
+.outer-box{
+
+}
+
 .inner_box {
-    background-image: radial-gradient(farthest-corner at 20px 20px,
-            black, yellow);
-
+    /* border-style: groove 10px black; */
+    padding: 5px;
     border-radius: .5rem;
-    box-shadow: 0 0 16px 0 rgba(0, 0, 0, .8);
-    padding: 10px;
-    border-style: groove 10px black;
-
+    box-shadow: 5px 5px 5px 5px rgba(0, 0, 0, .7);
     max-width: 10rem;
+    position: relative;
 }
 
 
@@ -16,11 +17,11 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    position: relative;
+    /* position: relative;
     height: 10rem;
     width: 10rem;
     margin: .5rem;
-    padding-bottom: 2.8rem;
+    padding-bottom: 2rem; */
     position: relative;
     height: 8rem;
     width: 8rem;
@@ -28,16 +29,17 @@
     padding-bottom: 2.8rem;
 
     /* background-color: rgba(200, 200, 200, 0.25); */
-    border-radius: .5rem .5rem;
+    /* border-radius: .5rem .5rem; */
 
 }
 
 .img_box img {
     max-width: 100%;
     max-width: 100%;
-    max-width: 150%;
-    max-width: 150%;
+    /* max-width: 150%;
+    max-width: 150%; */
     text-align: center;
+    justify-content: center;
 }
 
 /* .base_box {
@@ -73,6 +75,7 @@
     background-color: rgba(0, 0, 0, 0.8);
     color: white;
     border-radius: 5px;
+    width: 100%;
 }
 
 .Card__number {
@@ -82,8 +85,8 @@
     align-content: center;
     align-items: center;
     position: absolute;
-    height: 1.5rem;
-    width: 1.5rem;
+    height: 1.6rem;
+    width: 1.6rem;
     /* bottom: 0rem;
     right: .5rem; */
     border-radius: 50%;
@@ -96,6 +99,6 @@
     /* Typography */
     font-family: 'Montserrat', sans-serif;
     color: #4b4b4b;
-    font-size: 0.8rem;
+    font-size: 0.7rem;
     text-transform: capitalize;
 }

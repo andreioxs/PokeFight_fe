@@ -22,7 +22,7 @@ const AllPokemonView = ({
                 <HeaderController />
             </div>
 
-            <div>AllPokemon</div>
+            
 
             <div>
                 <h4>My Deck</h4>
@@ -33,14 +33,14 @@ const AllPokemonView = ({
             </div>
 
             <div>
-                <h4>Search</h4>
+                <h4></h4>
                 <SearchController
                     handleSearch={handleSearch}
                 />
             </div>
 
             <div>
-                <h4>List</h4>
+                {/* <h4>List</h4> */}
                 <ListController
                     filteredPokemon={filteredPokemon}
                 />

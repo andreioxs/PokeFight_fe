@@ -1,14 +1,16 @@
 import React from 'react'
+import './SearchView.css'
 
 const SearchView = ({ onChange, onKeyDown, onClick }) => {
     return (
-        <div>
+        <div id="search">
             <input
                 type={"text"}
                 onChange={onChange}
                 onKeyDown={onKeyDown}
+                placeholder="Pokémon"
             />
-            <button onClick={onClick}>Search</button>
+            <button onClick={onClick}>Suche!</button>
         </div>
     )
 }

@@ -1,7 +1,11 @@
 .navbar {
-    vertical-align: middle;
+    text-align: center;
+    justify-content: center;
+    text-decoration: none;
     display: flex;
-    gap: 20px;
+    gap: 50px;
+    margin: 1rem;
+    
 }
 
 .navbar-selected {

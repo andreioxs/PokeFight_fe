@@ -1,24 +1,28 @@
 .deck {
     display: flex;
     flex-direction: row;
-    margin: 10px 0px;
-    margin: auto;
-    justify-content: space-around;
-    border: 20px solid white;
-    height: 300px;
+    /* margin: 00px 0px; */
+    /* margin: auto; */
+    justify-content: center;
+    /* border: 5px solid red; */
+    height: 20rem;
     width: 100%;
-    background-color: red;
+    background-color: rgba(0, 0, 0, 0.8);
 }
 
 .deck .cards {
     
     display: flex;
     flex-direction: row;
-    gap: 20px;
+    
+    gap: 50px;
+    margin: 90px 0px;
 }
 
 .deck-card {
     display: flex;
+    margin: 10px 0px;
+    justify-content: center;
     
 }
 
@@ -29,6 +33,6 @@
 .deck .empty {
     display: flex;
     flex: 1;
-    /* background: white; */
+    background: none;
 
 }
