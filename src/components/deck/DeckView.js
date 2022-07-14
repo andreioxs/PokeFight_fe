@@ -35,8 +35,11 @@ const DeckView = ({ deck, onClick, death = [] }) => {
                 className='deck-card'
                 key={pokemon.id}
             >
+                <div className='death'>
+                    <Card pokemon={pokemon} />
+                </div>
 
-                death:{JSON.stringify(pokemon)}
+
             </div>
         )
         )
@@ -50,21 +53,15 @@ const DeckView = ({ deck, onClick, death = [] }) => {
             const left = 6 - number
             // console.log("left", left)
 
-            return [...Array(left)].map((x, i) => <div
+            return [...Array(left)].map((pokemon, i) => 
+            <div
+            className='deck-card'
                 key={i}
                 style={{ display: "flex", minHeight: 50, minWidth: 50, background: "red" }}
 
             >
-                empty
-                <br />
-                <br />
-                empty
-                <br />
-                <br />
-                empty
-                <br />
-                <br />
-                empty
+                <div className='empty'>
+                </div>
             </div>)
 
         }

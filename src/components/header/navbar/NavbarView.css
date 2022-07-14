@@ -1,9 +1,10 @@
 .navbar {
-    background: burlywood;
+    vertical-align: middle;
     display: flex;
     gap: 20px;
 }
 
 .navbar-selected {
-    background: red;
+    box-shadow: inset 0 0 0 0 rgb(120, 120, 120, 0.2);
+    transition: color .3s ease-in-out, box-shadow .3s ease-in-out;
 }

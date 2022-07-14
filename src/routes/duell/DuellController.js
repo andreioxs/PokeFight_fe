@@ -17,27 +17,7 @@ const DuellController = () => {
 
     // death pokemons
     const [computerDeathPokemons, setComputerDeathPokemons] = useState([])
-    const [humanDeathPokemons, setHumanDeathPokemons] = useState([{
-        "id": "6_1657746994076",
-        "name": {
-            "english": "Charizard",
-            "japanese": "リザードン",
-            "chinese": "喷火龙",
-            "french": "Dracaufeu"
-        },
-        "type": [
-            "Fire",
-            "Flying"
-        ],
-        "base": {
-            "HP": 78,
-            "Attack": 84,
-            "Defense": 78,
-            "Sp. Attack": 109,
-            "Sp. Defense": 85,
-            "Speed": 100
-        }
-    }])
+    const [humanDeathPokemons, setHumanDeathPokemons] = useState([])
 
     // fighting pokemon
     const [computerFightingPokemon, setComputerFightPokemon] = useState(null)

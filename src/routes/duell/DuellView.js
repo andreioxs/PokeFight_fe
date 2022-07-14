@@ -17,7 +17,7 @@ const DuellView = ({
 }) => {
 
     const renderhumanFightingPokemon = () => humanFightingPokemon === null
-        ? <div>Please Choose a Pokemon below</div>
+        ? <h4>Please Choose a Pokemon below</h4>
         : (
             <div>
                 <Card pokemon={humanFightingPokemon} />
@@ -35,11 +35,11 @@ const DuellView = ({
     const renderAttackButton = () => <button className='button' onClick={updateFight}>click me for logic...</button>
 
     const renderButtonOrGameOver = () => gameover.length > 0
-            ? (<div>
-                <h1>GAME OVER</h1>
-                <h4>the winner is {gameover}</h4>
-            </div>)
-            : renderAttackButton()
+        ? (<div>
+            <h1>GAME OVER</h1>
+            <h4>the winner is {gameover}</h4>
+        </div>)
+        : renderAttackButton()
 
     return (
         <div className='duell'>
@@ -47,6 +47,9 @@ const DuellView = ({
             <div className='header'>
                 <HeaderController />
             </div>
+
+            
+
 
             <div className='camera'>
 
@@ -61,8 +64,12 @@ const DuellView = ({
 
                         <div className='fightArea'>
                             {rendercomputerFightingPokemon()}
-                            {renderButtonOrGameOver()}
+                            <br/>
+                            <br/>
+
                             {renderhumanFightingPokemon()}
+                            <br/>
+
                         </div>
 
                         <DeckController
@@ -76,6 +83,8 @@ const DuellView = ({
                 </div>
 
             </div>
+
+            {renderButtonOrGameOver()}
 
         </div>
     )

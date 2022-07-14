@@ -10,10 +10,8 @@ body {
   -moz-osx-font-smoothing: grayscale;
 
   font-family: 'Alumni Sans', sans-serif;
-
   -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-
+  /* -moz-osx-font-smoothing: grayscale; */
 
   font-weight: 500;
   letter-spacing: .4px;
@@ -21,11 +19,10 @@ body {
 
   width: 100vw;
   height: 100vh;
-  background: pink;
+  background: orange;
+  background: antiquewhite;
 
   font-size: 16px;
-
-  /* transform: scale(.5); */
 }
 
 *,
@@ -78,6 +75,11 @@ p {
 
 
 button:hover {
-  border: 5px solid red;
+  cursor: pointer;
+  transform: scale(1.1);
+}
 
+button {
+  background: #0000;
+  border: 0px
 }
