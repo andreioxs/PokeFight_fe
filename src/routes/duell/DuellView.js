@@ -48,8 +48,6 @@ const DuellView = ({
                 <HeaderController />
             </div>
 
-            
-
 
             <div className='camera'>
 
@@ -64,12 +62,12 @@ const DuellView = ({
 
                         <div className='fightArea'>
                             {rendercomputerFightingPokemon()}
-                            <br/>
-                            <br/>
+                            <br />
+                            <br />
 
                             {renderhumanFightingPokemon()}
-                            <br/>
-
+                            <br />
+                            {renderButtonOrGameOver()}
                         </div>
 
                         <DeckController
@@ -84,7 +82,7 @@ const DuellView = ({
 
             </div>
 
-            {renderButtonOrGameOver()}
+
 
         </div>
     )
